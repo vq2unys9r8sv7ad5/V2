@@ -147,4 +147,24 @@ elseif game.PlaceId == 11765402359 then
     for i = 1, 10 do
         Remotes.RequestClassicBadge:InvokeServer({badgeKey = "CLASSIC_EVENT_TIX_"..string.format("%02i", i)})
     end
+elseif game.PlaceId == 15101393044 then
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local RunService = game:GetService("RunService")
+    
+    for i, v in workspace.RobloxClassic_WS.BasicCurrency:GetChildren() do
+        while v.Parent do
+            ReplicatedStorage.RobloxClassic_RPS.Collect:FireServer(v)
+            RunService.RenderStepped:Wait()
+        end
+    end
+elseif game.PlaceId == 17576951132 then
+    local RunService = game:GetService("RunService")
+    local Character = game:GetService("Players").LocalPlayer.Character
+    
+    for i, v in workspace.Currency:GetChildren() do
+        while v.Parent do
+            firetouchinterest(Character.HumanoidRootPart, v, 0)
+            RunService.RenderStepped:Wait()
+        end
+    end
 end
