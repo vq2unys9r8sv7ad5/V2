@@ -135,4 +135,16 @@ if game.PlaceId == 17427651911 then
             end
         end
     end
+elseif game.PlaceId == 11765402359 then
+    local Remotes = game:GetService("ReplicatedStorage").Remotes
+    
+    Remotes.ClassicEventQuest3Captured:FireServer()
+    
+    for i = 1, 5 do
+        Remotes.RequestClassicBadge:InvokeServer({badgeKey = "CLASSIC_EVENT_CHARACTER_"..i})
+    end
+    
+    for i = 1, 10 do
+        Remotes.RequestClassicBadge:InvokeServer({badgeKey = "CLASSIC_EVENT_TIX_"..string.format("%02i", i)})
+    end
 end
