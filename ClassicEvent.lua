@@ -167,7 +167,7 @@ elseif game.PlaceId == 17576951132 then
             RunService.RenderStepped:Wait()
         end
     end
-elseif game.PlaceId == 1537690962 then
+elseif game.PlaceId == 1537690962 or game.PlaceId == 17579226768 then
     local RunService = game:GetService("RunService")
     local Character = game:GetService("Players").LocalPlayer.Character
     local Parts = {}
