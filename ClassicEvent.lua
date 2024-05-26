@@ -167,4 +167,21 @@ elseif game.PlaceId == 17576951132 then
             RunService.RenderStepped:Wait()
         end
     end
+elseif game.PlaceId == 1537690962 then
+    local RunService = game:GetService("RunService")
+    local Character = game:GetService("Players").LocalPlayer.Character
+    local Parts = {}
+    
+    for i, v in Character:GetChildren() do
+        if v:IsA("BasePart") then
+            table.insert(Parts, v)
+        end
+    end
+    
+    for i, v in workspace.Tix:GetChildren() do
+        while v.Parent do
+            firetouchinterest(Parts[math.random(#Parts)], v, 0)
+            RunService.RenderStepped:Wait()
+        end
+    end
 end
