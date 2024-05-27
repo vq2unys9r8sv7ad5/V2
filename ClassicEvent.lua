@@ -187,4 +187,10 @@ elseif game.PlaceId == 6737970321 then
     for i = 0, 9 do
         Remotes.RobloxEvent202405RF:InvokeServer("RewardRobloxCoin", {Progress = 3 + (i - i % 2) * 1.5, Reward = 1 + i % 2})
     end
+elseif game.PlaceId == 16281300371 then
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    
+    for i = 1, 5 do
+        ReplicatedStorage.Packages._Index["sleitnick_net@0.1.0"].net["RF/RobloxEvent_ClaimMilestone"]:InvokeServer(i)
+    end
 end
