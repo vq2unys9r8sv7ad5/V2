@@ -150,12 +150,16 @@ elseif game.PlaceId == 11765402359 then
 elseif game.PlaceId == 15101393044 then
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local RunService = game:GetService("RunService")
+    local Children = workspace.RobloxClassic_WS.BasicCurrency:GetChildren()
     
-    for i, v in workspace.RobloxClassic_WS.BasicCurrency:GetChildren() do
-        while v.Parent do
+    while #Children > 0 do
+        Children = workspace.RobloxClassic_WS.BasicCurrency:GetChildren()
+        
+        for i, v in Children do
             ReplicatedStorage.RobloxClassic_RPS.Collect:FireServer(v)
-            RunService.RenderStepped:Wait()
         end
+        
+        RunService.RenderStepped:Wait()
     end
 elseif game.PlaceId == 17576951132 then
     local RunService = game:GetService("RunService")
@@ -167,21 +171,20 @@ elseif game.PlaceId == 17576951132 then
             RunService.RenderStepped:Wait()
         end
     end
-elseif game.PlaceId == 1537690962 or game.PlaceId == 17579226768 then
-    local RunService = game:GetService("RunService")
-    local Character = game:GetService("Players").LocalPlayer.Character
-    local Parts = {}
+elseif game.PlaceId == 1537690962 or game.PlaceId == 17579226768 or game.PlaceId == 17579225831 then
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
     
-    for i, v in Character:GetChildren() do
-        if v:IsA("BasePart") then
-            table.insert(Parts, v)
-        end
+    for i = 1, 10 do
+        ReplicatedStorage.TixEvent:FireServer(i)
+    end
+elseif game.PlaceId == 6737970321 then
+    local Remotes = game:GetService("ReplicatedStorage").Remotes
+    
+    for i = 1, 15 do
+        Remotes.RobloxEvent202405RE:FireServer({event = "gameend"})
     end
     
-    for i, v in workspace.Tix:GetChildren() do
-        while v.Parent do
-            firetouchinterest(Parts[math.random(#Parts)], v, 0)
-            RunService.RenderStepped:Wait()
-        end
+    for i = 0, 9 do
+        Remotes.RobloxEvent202405RF:InvokeServer("RewardRobloxCoin", {Progress = 3 + (i - i % 2) * 1.5, Reward = 1 + i % 2})
     end
 end
